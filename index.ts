@@ -14,6 +14,7 @@ const isValidUrl = (arg: string) => {
     try {
       new URL(arg);
       validUrls.push(arg);
+      return true;
     } catch (err) {
       console.log(redText(arg), redText('IS NOT A LINK'));
     }
@@ -66,5 +67,7 @@ validUrls.forEach((url, index) => {
 
   console.table(tableData);
   })();
+
+exports.isValidUrl = isValidUrl;
 
 
