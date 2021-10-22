@@ -9,10 +9,15 @@
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.12",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.0.1",
     "jest": "^27.0.6"
   },
   "scripts": {
-    "test": "jest"
+    "build": "npx tsc index.ts",
+    "test": "jest",
+    "lint": "eslint index.ts"
   },
   "author": "",
   "license": "ISC"
