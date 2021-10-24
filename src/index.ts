@@ -1,70 +1,60 @@
 import https from 'https';
-import fs from 'fs';
-import { opendir } from 'fs/promises';
-
-const Reset = '\x1b[0m';
-const FgRed = '\x1b[31m';
-const FgCyan = '\x1b[36m';
-const redText = (str: string) => `${FgRed}${str}${Reset}`;
-const cyanText = (str: string) => `${FgCyan}${str}${Reset}`;
-
-const validUrls: string[] = [];
-
-const isValidUrl = (arg: string) => {
-    try {
-      new URL(arg);
-      validUrls.push(arg);
-    } catch (err) {
-      console.log(redText(arg), redText('IS NOT A LINK'));
-    }
-  };
-
-const downloadFile = (link: string, index: number) => {
-  const dir = './myFiles';
-
-  if (!fs.existsSync(dir)){
-      fs.mkdirSync(dir);
-  }
-  const file = fs.createWriteStream(`./myFiles/file${index}.txt`);
-  https.get(link, function(response) {
-  response.pipe(file);
-});
-};
-
-const formatDate = (date: Date) => {
-  return date.toISOString().replace(/T/, ' ').replace(/\..+/, '');
-};
-
-const links = process.argv.slice(2);
-
-links.forEach((link) => {
-    isValidUrl(link);
-});
-
-validUrls.forEach((url, index) => {
-    downloadFile(url, index);
-});
+import fs, { readdirSync } from 'fs';
+import { cyanText } from './colorText.js';
+import { isValidUrl } from './isValidUrl.js';
 
 (async () => {
-  const tableData = [];
-  try {
-      console.log(cyanText('*****RESTULS HERE*****'));
-      const dir = await opendir('./myFiles');
-      
-      for await (const dirent of dir) {
-        const stats = fs.statSync(`./myFiles/${dirent.name}`);
-        const data = {
-          name: dirent.name,
-          created: formatDate(stats.birthtime),
-          size: stats.size,
-          folder: 'myFiles',
-        };
-        tableData.push(data);
-      }} catch (err) {
-      throw new Error(err);
-      }
+  const validUrls: string[] = [];
 
-  console.table(tableData);
-  })();
+  const downloadFile = (link: string, index: number) => {
+    return new Promise<void>((resolve) => {
+      const file = fs.createWriteStream(`./myFiles/file${index}.txt`);
+
+      https.get(link, function(response) {
+        response.pipe(file);
+        file.on('finish', function(){
+          resolve();
+        });
+      });   
+    });
+  };
+
+  const formatDate = (date: Date) => {
+    return date.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+  };
+
+  const showData = () => {
+    const tableData = [];
+    console.log(cyanText('*****RESTULS HERE*****'));
+    const dir = readdirSync('./myFiles');
+    console.log(dir);
+    dir.forEach((file) => {
+      console.log(file);
+      const stats = fs.statSync(`./myFiles/${file}`);
+      const data = {
+        name: file,
+        created: formatDate(stats.birthtime),
+        size: stats.size,
+        folder: 'myFiles',
+      };
+      tableData.push(data);
+    })
+    console.table(tableData);
+  };
+
+  const links = process.argv.slice(2);
+
+  links.forEach((link) => {
+    if(isValidUrl(link)) {
+      validUrls.push(link);
+    }
+  });
+
+  for(let i = 0; i < validUrls.length; i++) {
+    await downloadFile(validUrls[i], i);
+  }
+  
+  showData();
+})();
 
 
