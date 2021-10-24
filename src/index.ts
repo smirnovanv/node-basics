@@ -2,13 +2,16 @@ import https from 'https';
 import fs, { readdirSync } from 'fs';
 import { cyanText } from './colorText.js';
 import { isValidUrl } from './isValidUrl.js';
+import { createTempFolder } from './createTempFolder.js';
 
 (async () => {
   const validUrls: string[] = [];
 
-  const downloadFile = (link: string, index: number) => {
+  const tempFolderName = await createTempFolder();
+
+  const fetchFile = (link: string, index: number, folderName: string) => {
     return new Promise<void>((resolve) => {
-      const file = fs.createWriteStream(`./myFiles/file${index}.txt`);
+      const file = fs.createWriteStream(`${folderName}/file${index}.txt`);
 
       https.get(link, function(response) {
         response.pipe(file);
@@ -26,16 +29,16 @@ import { isValidUrl } from './isValidUrl.js';
   const showData = () => {
     const tableData = [];
     console.log(cyanText('*****RESTULS HERE*****'));
-    const dir = readdirSync('./myFiles');
+    const dir = readdirSync(`${tempFolderName}`);
     console.log(dir);
     dir.forEach((file) => {
       console.log(file);
-      const stats = fs.statSync(`./myFiles/${file}`);
+      const stats = fs.statSync(`${tempFolderName}/${file}`);
       const data = {
         name: file,
         created: formatDate(stats.birthtime),
         size: stats.size,
-        folder: 'myFiles',
+        folder: tempFolderName,
       };
       tableData.push(data);
     })
@@ -51,7 +54,7 @@ import { isValidUrl } from './isValidUrl.js';
   });
 
   for(let i = 0; i < validUrls.length; i++) {
-    await downloadFile(validUrls[i], i);
+    await fetchFile(validUrls[i], i, tempFolderName);
   }
   
   showData();
