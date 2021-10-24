@@ -1,12 +1,13 @@
 import fs, { readdirSync } from 'fs';
 import { cyanText } from "./colorText.js";
 import { formatDateForTable } from "./formatDateForTable.js";
+import { getFolderNameForTable } from './getFolderNameForTable.js';
 
-export const showData = (folder) => {
+export const showData = (folder: string) => {
   const tableData = [];
   console.log(cyanText('*****RESTULS HERE*****'));
   const dir = readdirSync(`${folder}`);
-  console.log(dir);
+
   dir.forEach((file) => {
     console.log(file);
     const stats = fs.statSync(`${folder}/${file}`);
@@ -14,7 +15,7 @@ export const showData = (folder) => {
       name: file,
       created: formatDateForTable(stats.birthtime),
       size: stats.size,
-      folder: folder,
+      folder: getFolderNameForTable(folder),
     };
     tableData.push(data);
   })
