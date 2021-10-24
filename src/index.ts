@@ -1,5 +1,5 @@
-import * as https from 'https';
-import * as fs from 'fs';
+import https from 'https';
+import fs from 'fs';
 import { opendir } from 'fs/promises';
 
 const Reset = '\x1b[0m';
