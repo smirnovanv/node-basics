@@ -6,7 +6,7 @@ import { showData } from './showData.js';
 (async () => {
   const validUrls: string[] = [];
 
-  const tempFolderName = await createTempFolder();
+  const tempFolderName = createTempFolder();
 
   const links = process.argv.slice(2);
 
@@ -16,9 +16,7 @@ import { showData } from './showData.js';
     }
   });
 
-  for(let i = 0; i < validUrls.length; i++) {
-    await fetchFile(validUrls[i], tempFolderName);
-  }
+  await Promise.all(validUrls.map(url => fetchFile(url, tempFolderName)));
   
   showData(tempFolderName);
 })();

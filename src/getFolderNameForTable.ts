@@ -1,4 +1,5 @@
-export const getFolderNameForTable = (path) => {
-  const folderPathSplit = path.split('\\');
-  return folderPathSplit[folderPathSplit.length - 1];
+import path from 'path';
+
+export const getFolderNameForTable = (folderPath: string) => {
+  return path.parse(folderPath).name;
 };
