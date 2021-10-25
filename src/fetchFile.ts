@@ -15,10 +15,10 @@ export const fetchFile = async (link: string, folderName: string) => {
       });
 
       file.on('error', function(err){
-        console.log('ERROR:', err);
+        console.error('Fetching file error:', err.message);
         response.unpipe();
         file.end();
-        reject();
+        reject(err);
       });
     });   
   });
