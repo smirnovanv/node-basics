@@ -6,7 +6,7 @@ import { getFolderNameForTable } from './getFolderNameForTable.js';
 
 export const showData = (folder: string) => {
   const tableData = [];
-  console.log(cyanText('*****RESTULS HERE*****'));
+  console.log(cyanText('*****RESULTS HERE*****'));
   const dir = readdirSync(`${folder}`);
 
   dir.forEach((file) => {

@@ -1,10 +1,10 @@
-export const isValidUrl = (arg: string, colorText) => {
+export const isValidUrl = (url: string, colorText) => {
   try {
-    new URL(arg);
-    console.log(arg, 'IS VALID LINK');
+    new URL(url);
+    console.log(url, 'IS VALID LINK');
     return true;
   } catch (err) {
-    console.log(colorText(arg), colorText('IS NOT A LINK'));
+    console.log(colorText(url), colorText('IS NOT A LINK'));
     return false;
   }
 };
