@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="2.513">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-25T12:41:06" time="2.355" tests="2">
-    <testcase classname=" just test" name=" just test" time="0.002">
+<testsuites name="jest tests" tests="2" failures="0" errors="0" time="2.514">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2021-10-25T13:52:28" time="2.362" tests="2">
+    <testcase classname=" url should be valid" name=" url should be valid" time="0.027">
     </testcase>
-    <testcase classname=" url should be valid" name=" url should be valid" time="0.023">
+    <testcase classname=" url should be valid" name=" url should be valid" time="0.007">
     </testcase>
   </testsuite>
 </testsuites>

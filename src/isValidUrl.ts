@@ -5,5 +5,6 @@ export const isValidUrl = (arg: string, colorText) => {
     return true;
   } catch (err) {
     console.log(colorText(arg), colorText('IS NOT A LINK'));
+    return false;
   }
 };
