@@ -17,6 +17,7 @@ module.exports = {
     'import',
   ],
   'rules': {
+    'eol-last': ['error', 'always'],
     'indent': ['error', 2],
     'quotes': ['error', 'single'],
     'no-param-reassign': ['error'],
