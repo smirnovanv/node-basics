@@ -1,5 +1,6 @@
 import https from 'https';
 import fs from 'fs';
+
 import { getLocalFileName } from './getLocalFileName.js';
 
 export const fetchFile = async (link: string, folderName: string) => {
@@ -14,7 +15,7 @@ export const fetchFile = async (link: string, folderName: string) => {
       });
 
       file.on('error', function(err){
-        console.log("ERROR:" + err);
+        console.log('ERROR:', err);
         response.unpipe();
         file.end();
         reject();

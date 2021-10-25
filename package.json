@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
+    "eslint-plugin-import": "^2.25.2",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
@@ -15,7 +16,7 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "lint": "eslint index.ts"
+    "lint": "eslint . --ext .ts"
   },
   "author": "",
   "license": "ISC"

@@ -1,6 +1,7 @@
 import fs, { readdirSync } from 'fs';
-import { cyanText } from "./colorText.js";
-import { formatDateForTable } from "./formatDateForTable.js";
+
+import { cyanText } from './colorText.js';
+import { formatDateForTable } from './formatDateForTable.js';
 import { getFolderNameForTable } from './getFolderNameForTable.js';
 
 export const showData = (folder: string) => {
@@ -9,7 +10,6 @@ export const showData = (folder: string) => {
   const dir = readdirSync(`${folder}`);
 
   dir.forEach((file) => {
-    console.log(file);
     const stats = fs.statSync(`${folder}/${file}`);
     const data = {
       name: file,

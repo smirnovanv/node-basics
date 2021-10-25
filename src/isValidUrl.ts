@@ -1,4 +1,4 @@
-import { redText } from "./colorText.js";
+import { redText } from './colorText.js';
 
 export const isValidUrl = (arg: string) => {
   try {

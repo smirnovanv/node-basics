@@ -3,6 +3,6 @@ import { sep } from 'path';
 import fs from 'fs';
 
 export const createTempFolder = () => {
-    const tmpDir = os.tmpdir();
-    return fs.mkdtempSync(`${tmpDir}${sep}`);
+  const tmpDir = os.tmpdir();
+  return fs.mkdtempSync(`${tmpDir}${sep}`);
 };
