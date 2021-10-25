@@ -17,6 +17,13 @@ module.exports = {
     'import',
   ],
   'rules': {
+    'sort-imports': ['error', {
+      'ignoreCase': false,
+      'ignoreDeclarationSort': false,
+      'ignoreMemberSort': false,
+      'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single'],
+      'allowSeparatedGroups': true,
+    }],
     'eol-last': ['error', 'always'],
     'indent': ['error', 2],
     'quotes': ['error', 'single'],

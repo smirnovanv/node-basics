@@ -1,8 +1,8 @@
-import { isValidLink } from './isValidLink.js';
 import { createTempFolder } from './createTempFolder.js';
 import { fetchFile } from './fetchFile.js';
-import { showData } from './showData.js';
+import { isValidLink } from './isValidLink.js';
 import { redText } from './colorText.js';
+import { showData } from './showData.js';
 
 (async () => {
   let validLinks: string[] = [];
