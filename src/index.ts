@@ -2,6 +2,7 @@ import { isValidUrl } from './isValidUrl.js';
 import { createTempFolder } from './createTempFolder.js';
 import { fetchFile } from './fetchFile.js';
 import { showData } from './showData.js';
+import { redText } from './colorText.js';
 
 (async () => {
   const validUrls: string[] = [];
@@ -11,7 +12,7 @@ import { showData } from './showData.js';
   const links = process.argv.slice(2);
 
   links.forEach((link) => {
-    if(isValidUrl(link)) {
+    if(isValidUrl(link, redText)) {
       validUrls.push(link);
     }
   });
