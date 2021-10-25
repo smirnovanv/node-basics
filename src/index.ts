@@ -1,25 +1,19 @@
-import { isValidUrl } from './isValidUrl.js';
+import { isValidLink } from './isValidLink.js';
 import { createTempFolder } from './createTempFolder.js';
 import { fetchFile } from './fetchFile.js';
 import { showData } from './showData.js';
 import { redText } from './colorText.js';
 
 (async () => {
-  const validUrls: string[] = [];
+  let validLinks: string[] = [];
 
   const tempFolderName = createTempFolder();
 
   const links = process.argv.slice(2);
 
-  links.forEach((link) => {
-    if(isValidUrl(link, redText)) {
-      validUrls.push(link);
-    }
-  });
+  validLinks = links.filter((link) => isValidLink(link, redText));
 
-  await Promise.all(validUrls.map(url => fetchFile(url, tempFolderName)));
+  await Promise.all(validLinks.map(link => fetchFile(link, tempFolderName)));
   
   showData(tempFolderName);
 })();
-
-
