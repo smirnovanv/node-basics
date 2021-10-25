@@ -1,3 +1,3 @@
 export const formatDateForTable = (date: Date) => {
-  return date.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+  return date.toLocaleString('en-US', { hour12: false });
 };
