@@ -3,3 +3,5 @@
 /dist
 
 junit.xml
+/.nyc_output
+/coverage

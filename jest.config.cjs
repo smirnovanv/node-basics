@@ -12,4 +12,8 @@ module.exports = {
   reporters: ['default', 'jest-junit'],
   globals: { 'ts-jest': { diagnostics: false } },
   transform: {},
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!<rootDir>/node_modules/',
+  ],
 }
