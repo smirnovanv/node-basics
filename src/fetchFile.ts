@@ -4,8 +4,8 @@ import https from 'https';
 import { getLocalFileName } from './getLocalFileName.js';
 
 export const fetchFile = async (link: string, folderName: string) => {
-  const localFileName = await getLocalFileName(link);
   return new Promise<void>((resolve, reject) => {
+    const localFileName = getLocalFileName(link);
     const file = fs.createWriteStream(`${folderName}/${localFileName}`);
 
     https.get(link, function(response) {
