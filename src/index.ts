@@ -1,8 +1,8 @@
-import { createTempFolder } from './createTempFolder.js';
-import { fetchFile } from './fetchFile.js';
-import { isValidLink } from './isValidLink.js';
-import { redText } from './colorText.js';
-import { showData } from './showData.js';
+import { createTempFolder } from './createTempFolder';
+import { fetchFile } from './fetchFile';
+import { isValidLink } from './isValidLink';
+import { redText } from './colorText';
+import { showData } from './showData';
 
 (async () => {
   let validLinks: string[] = [];

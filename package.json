@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "dependencies": {
     "eslint-plugin-import": "^2.25.2",
     "jest-junit": "^13.0.0"

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { generateHash } from './generateHash.js';
+import { generateHash } from './generateHash';
 
 export const getLocalFileName = (link: string) => {
   const uniqueHash = generateHash();

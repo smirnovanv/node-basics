@@ -1,8 +1,8 @@
 import fs, { readdirSync } from 'fs';
 
-import { cyanText } from './colorText.js';
-import { formatDateForTable } from './formatDateForTable.js';
-import { getFolderNameForTable } from './getFolderNameForTable.js';
+import { cyanText } from './colorText';
+import { formatDateForTable } from './formatDateForTable';
+import { getFolderNameForTable } from './getFolderNameForTable';
 
 export const showData = (folder: string) => {
   const tableData = [];

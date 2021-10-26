@@ -1,7 +1,7 @@
 import fs from 'fs';
 import https from 'https';
 
-import { getLocalFileName } from './getLocalFileName.js';
+import { getLocalFileName } from './getLocalFileName';
 
 export const fetchFile = async (link: string, folderName: string) => {
   return new Promise<void>((resolve, reject) => {
