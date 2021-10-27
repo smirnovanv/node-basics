@@ -9,4 +9,3 @@ describe('should test link validity', () => {
     expect(isValidLink('lllooo')).toBe(false);
   });
 });
-
