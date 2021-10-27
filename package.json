@@ -25,7 +25,9 @@
     "test": "jest"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "eslint . --ext .ts"
+    }
   },
   "author": "",
   "license": "ISC"
