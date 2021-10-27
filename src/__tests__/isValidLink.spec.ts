@@ -10,3 +10,7 @@ describe('should test link validity', () => {
   });
 });
 
+test('fail test', () => {
+  expect(1 + 1).toBe(5);
+});
+
