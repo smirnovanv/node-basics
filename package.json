@@ -40,7 +40,7 @@
     "all": true,
     "check-coverage": true,
     "extension": [
-			".ts"
-		]
+      ".ts"
+    ]
   }
 }
