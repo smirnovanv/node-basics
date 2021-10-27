@@ -1,7 +1,7 @@
 import { createTempFolder } from './createTempFolder';
 import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
-import { showData } from './showData';
+import { showData } from "./showData";
 
 (async () => {
   let validLinks: string[] = [];
