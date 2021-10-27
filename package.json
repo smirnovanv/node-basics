@@ -24,6 +24,9 @@
     "lint": "eslint . --ext .ts",
     "test": "jest"
   },
+  "husky": {
+    "hooks": {}
+  },
   "author": "",
   "license": "ISC"
 }
