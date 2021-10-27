@@ -14,6 +14,7 @@
     "@typescript-eslint/parser": "^5.1.0",
     "eslint": "^8.0.1",
     "jest": "^27.3.1",
+    "pre-commit": "^1.2.2",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
@@ -23,6 +24,9 @@
     "lint": "eslint . --ext .ts",
     "test": "jest"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "author": "",
   "license": "ISC"
 }
