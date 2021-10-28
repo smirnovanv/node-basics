@@ -1,8 +1,14 @@
 {
-  "name": "links",
+  "name": "@smirnovanv/links",
   "version": "1.0.0",
-  "description": "",
+  "description": "Downloads files via links",
   "main": "index.js",
+  "keywords": [
+    "links",
+    "npm",
+    "package",
+    "smirnovanv"
+  ],
   "dependencies": {
     "eslint-plugin-import": "^2.25.2",
     "jest-junit": "^13.0.0"
@@ -47,7 +53,7 @@
     }
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
     "include": [
