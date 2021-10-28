@@ -3,16 +3,21 @@ import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
 import { showData } from './showData';
 
-(async () => {
-  let validLinks: string[] = [];
-
+export default async function downloadFilesIntoTempFolder (downloadLinks?: string[]) {
+  const links: string[] = [];
   const tempFolderName = createTempFolder();
 
-  const links = process.argv.slice(2);
+  if (downloadLinks) {
+    links.push(...downloadLinks);
+  }
 
-  validLinks = links.filter((link) => isValidLink(link));
+  const validLinks = links.filter((link) => isValidLink(link));
 
   await Promise.all(validLinks.map(link => fetchFile(link, tempFolderName)));
   
   showData(tempFolderName);
-})();
+}
+
+if (process.argv.slice(2).length > 0) {
+  downloadFilesIntoTempFolder(process.argv.slice(2));
+}
