@@ -3,7 +3,7 @@ import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
 import { showData } from './showData';
 
-export default async function downloadFilesIntoTempFolder (downloadLinks?: string[]) {
+module.exports = async function downloadFilesIntoTempFolder (downloadLinks?: string[]) {
   const links: string[] = [];
   const tempFolderName = createTempFolder();
 
@@ -16,8 +16,4 @@ export default async function downloadFilesIntoTempFolder (downloadLinks?: strin
   await Promise.all(validLinks.map(link => fetchFile(link, tempFolderName)));
   
   showData(tempFolderName);
-}
-
-if (process.argv.slice(2).length > 0) {
-  downloadFilesIntoTempFolder(process.argv.slice(2));
 }
