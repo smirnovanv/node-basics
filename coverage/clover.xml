@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1635506345193" clover="3.2.0">
-  <project timestamp="1635506345193" name="All files">
+<coverage generated="1635509281434" clover="3.2.0">
+  <project timestamp="1635509281434" name="All files">
     <metrics statements="71" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="18" coveredmethods="1" elements="90" coveredelements="6" complexity="0" loc="71" ncloc="71" packages="1" files="10" classes="10"/>
     <file name="colorText.ts" path="D:\Projects\links\src\colorText.ts">
       <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
