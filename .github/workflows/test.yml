@@ -22,5 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm run build
       - run: npm run test
+      - env:
+          CODECOV_TOKEN='12c0b811-c0c5-43c2-8b38-5a257abe3a4f'
+      - run: npm run build
+      
