@@ -1,5 +1,5 @@
 <a href="https://codecov.io/gh/smirnovanv/node-basics">
-  <img src="https://codecov.io/gh/smirnovanv/node-basics/branch/issue5-create-npm/graph/badge.svg?token=QDXORUHZPA"/>
+  <img src="https://codecov.io/gh/smirnovanv/node-basics/branch/master/graph/badge.svg?token=QDXORUHZPA"/>
 </a>
 
 AVAILABLE SCRIPTS
