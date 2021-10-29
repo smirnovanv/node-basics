@@ -9,10 +9,6 @@
     "package",
     "smirnovanv"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/smirnovanv/node-basic"
-  },
   "dependencies": {
     "eslint-plugin-import": "^2.25.2",
     "jest-junit": "^13.0.0"
