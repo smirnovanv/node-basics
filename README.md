@@ -1,6 +1,4 @@
-<a href="https://codecov.io/gh/smirnovanv/node-basics">
-  <img src="https://codecov.io/gh/smirnovanv/node-basics/branch/master/graph/badge.svg?token=QDXORUHZPA"/>
-</a>
+[![codecov](https://codecov.io/gh/smirnovanv/node-basics/branch/master/graph/badge.svg)](https://codecov.io/gh/smirnovanv/node-basics)
 
 AVAILABLE SCRIPTS
 
