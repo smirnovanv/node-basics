@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/smirnovanv/node-basics/branch/master/graph/badge.svg)](https://codecov.io/gh/smirnovanv/node-basics)
+
 AVAILABLE SCRIPTS
 
 npm run build - to transfer ts into js
