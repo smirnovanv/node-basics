@@ -1,0 +1,4 @@
+coverage:
+  branch: issue5-create-npm
+  round: up
+  range: 0..100
