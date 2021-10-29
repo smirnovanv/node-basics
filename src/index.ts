@@ -3,7 +3,7 @@ import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
 import { showData } from './showData';
 
-module.exports = async function downloadFilesIntoTempFolder (downloadLinks?: string[]) {
+const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
   const links: string[] = [];
   const tempFolderName = createTempFolder();
 
@@ -17,3 +17,5 @@ module.exports = async function downloadFilesIntoTempFolder (downloadLinks?: str
   
   showData(tempFolderName);
 }
+
+export default downloadFilesIntoTempFolder;
