@@ -2,7 +2,7 @@
   "name": "@smirnovanv/links",
   "version": "3.0.0",
   "description": "Downloads files via links",
-  "main": "index.js",
+  "main": "dist/index.js",
   "keywords": [
     "links",
     "npm",
