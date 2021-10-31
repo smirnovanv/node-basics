@@ -1,6 +1,6 @@
 {
   "name": "@smirnovanv/links",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Downloads files via links",
   "main": "index.js",
   "keywords": [
@@ -39,7 +39,7 @@
     "release": "standard-version",
     "release-patch": "standard-version -- --release-as patch",
     "release-minor": "standard-version -- --release-as minor",
-    "release-major": "standard-version -- -r major"
+    "release-major": "npm run release -- -r major"
   },
   "husky": {
     "hooks": {
