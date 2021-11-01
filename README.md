@@ -12,3 +12,7 @@ node dist/index.js https://filesamples.com/samples/document/txt/sample3.txt http
 npm run test - to test the project via jest
 
 npm run lint - to test the project via eslint
+
+npm run release-patch - to update as a patch
+npm run release-minor - to update minor version
+npm run release-major - to update major version
