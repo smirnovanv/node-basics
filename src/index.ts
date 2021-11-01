@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createTempFolder } from './createTempFolder';
 import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
