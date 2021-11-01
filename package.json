@@ -1,8 +1,8 @@
 {
   "name": "@smirnovanv/links",
-  "version": "3.0.2",
+  "version": "3.0.12",
   "description": "Downloads files via links",
-  "main": "bin/dist/index.js",
+  "main": "bin/index.js",
   "keywords": [
     "links",
     "npm",
@@ -32,7 +32,7 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "start": "node bin/dist/index.js",
+    "start": "node bin/index.js",
     "lint": "eslint . --ext .ts",
     "test": "jest --coverage",
     "prepare": "husky install",
@@ -70,7 +70,7 @@
     ]
   },
   "bin": {
-    "download-links": "./bin/dist/index.js"
+    "download-links": "./bin/index.js"
   },
   "preferGlobal": true
 }
