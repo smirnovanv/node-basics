@@ -18,4 +18,10 @@ const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
   showData(tempFolderName);
 }
 
+const incomingLinks = process.argv.slice(2);
+
+if (incomingLinks.length > 0) {
+  downloadFilesIntoTempFolder(incomingLinks);
+}
+
 export default downloadFilesIntoTempFolder;
