@@ -2,17 +2,34 @@
 
 AVAILABLE SCRIPTS
 
-npm run build - to transfer ts into js
+```bash
+# to transfer ts into js
+npm run build 
+``` 
 
-node index.js ... - to run the project
-
-example links: 
+```bash
+# to run the project
+node index.js ... 
+```
+```bash
+# example links: 
 node dist/index.js https://filesamples.com/samples/document/txt/sample3.txt https://filesamples.com/samples/document/txt/sample2.txt https://filesamples.com/samples/document/txt/sample1.txt
+```
 
-npm run test - to test the project via jest
+```bash
+# to test the project via jest
+npm run test 
 
-npm run lint - to test the project via eslint
+# to test the project via eslint
+npm run lint 
 
-npm run release-patch - to update as a patch
-npm run release-minor - to update minor version
-npm run release-major - to update major version
+# to update as a patch
+npm run release-patch
+
+# to update minor version
+npm run release-minor
+
+# to update major version
+npm run release-major
+
+```
