@@ -1,18 +1,17 @@
-import { FgCyan, cyanText } from '../colorText';
+import { cyanText } from '../colorText';
 
 describe('should return colored text', () => {
-  let coloredText: string;
-
-  beforeEach(() => {
-    coloredText = cyanText('test colors');
-  });
 
   test('should contain incoming text', () => {
-    expect(coloredText.includes('test colors')).toBe(true);
+    const coloredText = cyanText('test colors');
+    expect(coloredText).toMatch('\x1b[36mtest colors\x1b[0m');
   });
 
-  test('should contain cyan code', () => {
-    expect(coloredText.includes(FgCyan)).toBe(true);
-  });
+
 
 });
+// /^\x1b[36mtest colors\x1b[0m$/
+// const Reset = '\x1b[0m';
+// export const FgCyan = '\x1b[36m';
+// export const cyanText = (str: string) => `${FgCyan}${str}${Reset}`;
+// /^123456$/
