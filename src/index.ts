@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createTempFolder } from './createTempFolder';
 import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
@@ -16,6 +18,12 @@ const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
   await Promise.all(validLinks.map(link => fetchFile(link, tempFolderName)));
   
   showData(tempFolderName);
+}
+
+const incomingLinks = process.argv.slice(2);
+
+if (incomingLinks.length > 0) {
+  downloadFilesIntoTempFolder(incomingLinks);
 }
 
 export default downloadFilesIntoTempFolder;
