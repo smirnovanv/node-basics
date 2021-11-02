@@ -10,15 +10,17 @@ import { showData } from './showData';
 dotenv.config();
 
 const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
-  const links: string[] = [];
+  let links: string[] = [];
   const tempFolderName = createTempFolder();
 
-  if (downloadLinks) {
-    links.push(...downloadLinks);
+  if (!downloadLinks?.length) {
+    return;
   }
-
+  
+  links.push(...downloadLinks);
+  
   if(!process.env.SKIP_CHECK) {
-    links.filter((link) => isValidLink(link));
+    links = links.filter((link) => isValidLink(link));
   }
 
   await Promise.all(links.map(link => fetchFile(link, tempFolderName)));
