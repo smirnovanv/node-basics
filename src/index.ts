@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
+import dotenv from 'dotenv';
+
 import { createTempFolder } from './createTempFolder';
 import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
 import { showData } from './showData';
+
+dotenv.config();
 
 const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
   const links: string[] = [];
@@ -13,9 +17,11 @@ const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
     links.push(...downloadLinks);
   }
 
-  const validLinks = links.filter((link) => isValidLink(link));
+  if(!process.env.SKIP_CHECK) {
+    links.filter((link) => isValidLink(link));
+  }
 
-  await Promise.all(validLinks.map(link => fetchFile(link, tempFolderName)));
+  await Promise.all(links.map(link => fetchFile(link, tempFolderName)));
   
   showData(tempFolderName);
 }
