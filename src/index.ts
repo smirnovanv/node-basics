@@ -10,13 +10,13 @@ import { showData } from './showData';
 dotenv.config();
 
 const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
-  let links: string[] = [];
-  const tempFolderName = createTempFolder();
-
   if (!downloadLinks?.length) {
     return;
   }
-  
+
+  let links: string[] = [];
+  const tempFolderName = createTempFolder();
+
   links.push(...downloadLinks);
   
   if(!process.env.SKIP_CHECK) {
