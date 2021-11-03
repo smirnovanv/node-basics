@@ -4,3 +4,4 @@
 
 junit.xml
 /.nyc_output
+.env
