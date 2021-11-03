@@ -1,11 +1,19 @@
-import fs from 'fs';
-
 import { createTempFolder } from '../createTempFolder';
 
 describe('should create temp folder', () => {
-  test('should create temp folder', () => {
-    const folderPath = createTempFolder();
-    console.log(folderPath);
-    expect(fs.existsSync(folderPath)).toBe(true)
+  test('tmpdir, mkdtempSync should be called ', () => {
+    const osMock = {
+      tmpdir: jest.fn(),
+    };
+
+    const fsMock = {
+      mkdtempSync: jest.fn(),
+    };
+  
+
+    createTempFolder(osMock, fsMock);
+  
+    expect(osMock.tmpdir).toHaveBeenCalled();
+    expect(fsMock.mkdtempSync).toHaveBeenCalled();
   });
 });

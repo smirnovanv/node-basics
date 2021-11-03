@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+import fs from 'fs';
+import os from 'os';
+
 import { createTempFolder } from './createTempFolder';
 import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
@@ -7,7 +10,7 @@ import { showData } from './showData';
 
 const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
   const links: string[] = [];
-  const tempFolderName = createTempFolder();
+  const tempFolderName = createTempFolder(os, fs);
 
   if (downloadLinks) {
     links.push(...downloadLinks);
