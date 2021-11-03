@@ -3,22 +3,30 @@
 import fs from 'fs';
 import os from 'os';
 
+import dotenv from 'dotenv';
+
 import { createTempFolder } from './createTempFolder';
 import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
 import { showData } from './showData';
 
-const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
-  const links: string[] = [];
-  const tempFolderName = createTempFolder(os, fs);
+dotenv.config();
 
-  if (downloadLinks) {
-    links.push(...downloadLinks);
+const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
+  if (!downloadLinks?.length) {
+    return;
   }
 
-  const validLinks = links.filter((link) => isValidLink(link));
+  let links: string[] = [];
+  const tempFolderName = createTempFolder(os, fs);
 
-  await Promise.all(validLinks.map(link => fetchFile(link, tempFolderName)));
+  links.push(...downloadLinks);
+  
+  if(!process.env.SKIP_CHECK) {
+    links = links.filter((link) => isValidLink(link));
+  }
+
+  await Promise.all(links.map(link => fetchFile(link, tempFolderName)));
   
   showData(tempFolderName);
 }
