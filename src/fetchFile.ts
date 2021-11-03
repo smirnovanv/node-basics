@@ -1,14 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'fs';
 import https from 'https';
 
 import { getLocalFileName } from './getLocalFileName';
 
-export const fetchFile = async (link: string, folderName: string) => {
+export const fetchFile = async (
+  link: string, 
+  folderName: string, 
+  fsLike: typeof fs | any = fs, 
+  httpsLike: typeof https | any = https,
+) => {
   return new Promise<void>((resolve, reject) => {
     const localFileName = getLocalFileName(link);
-    const file = fs.createWriteStream(`${folderName}/${localFileName}`);
+    const file = fsLike.createWriteStream(`${folderName}/${localFileName}`);
 
-    https.get(link, function(response) {
+    httpsLike.get(link, function(response) {
       response.pipe(file);
       file.on('finish', function(){
         resolve();
