@@ -15,7 +15,8 @@ export const fetchFile = async (
   
   return new Promise<void>((resolve, reject) => {
     const localFileName = getLocalFileName(link);
-    const fileType = localFileName.split('.').at(-1);
+    const fileNameSplit = localFileName.split('.');
+    const fileType = fileNameSplit[fileNameSplit.length - 1];
     const file = fsLike.createWriteStream(`${folderName}/${localFileName}`);
     httpsLike.get(link, function(response) {
       response.pipe(file);
