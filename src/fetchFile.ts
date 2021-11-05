@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'fs';
-import https from 'https';
+
+import { https } from 'follow-redirects';
 
 import { getLocalFileName } from './getLocalFileName';
 
@@ -16,6 +17,7 @@ export const fetchFile = async (
 
     httpsLike.get(link, function(response) {
       response.pipe(file);
+      
       file.on('finish', function(){
         resolve();
       });
