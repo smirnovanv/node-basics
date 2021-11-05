@@ -11,10 +11,12 @@
   ],
   "dependencies": {
     "@types/follow-redirects": "^1.13.1",
+    "@types/unzipper": "^0.10.4",
     "dotenv": "^10.0.0",
     "eslint-plugin-import": "^2.25.2",
     "follow-redirects": "^1.14.5",
-    "jest-junit": "^13.0.0"
+    "jest-junit": "^13.0.0",
+    "unzipper": "^0.10.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
