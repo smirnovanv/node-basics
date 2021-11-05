@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+import fs from 'fs';
+import os from 'os';
+
 import dotenv from 'dotenv';
 
 import { createTempFolder } from './createTempFolder';
@@ -15,7 +18,7 @@ const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
   }
 
   let links: string[] = [];
-  const tempFolderName = createTempFolder();
+  const tempFolderName = createTempFolder(os, fs);
 
   links.push(...downloadLinks);
   
