@@ -6,13 +6,14 @@ import os from 'os';
 import dotenv from 'dotenv';
 
 import { createTempFolder } from './createTempFolder';
-import { fetchFile } from './fetchFile';
 import { isValidLink } from './isValidLink';
+import { processLink } from './processLink';
 import { showData } from './showData';
+
 
 dotenv.config();
 
-const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
+const downloadFilesAndShowStats = async (downloadLinks?: string[]) => {
   if (!downloadLinks?.length) {
     return;
   }
@@ -26,7 +27,7 @@ const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
     links = links.filter((link) => isValidLink(link));
   }
 
-  await Promise.all(links.map(link => fetchFile(link, tempFolderName)));
+  await Promise.all(links.map(link => processLink(link, tempFolderName)));
   
   showData(tempFolderName);
 }
@@ -34,7 +35,7 @@ const downloadFilesIntoTempFolder = async (downloadLinks?: string[]) => {
 const incomingLinks = process.argv.slice(2);
 
 if (incomingLinks.length > 0) {
-  downloadFilesIntoTempFolder(incomingLinks);
+  downloadFilesAndShowStats(incomingLinks);
 }
 
-export default downloadFilesIntoTempFolder;
+export default downloadFilesAndShowStats;
