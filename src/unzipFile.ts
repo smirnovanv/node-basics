@@ -1,10 +1,8 @@
-import fs from 'fs';
-
 import unzipper from 'unzipper';
 
-export const unzipFile = (path: string, fileName: string) => {
+export const unzipFile = (path: string, fileName: string, fsLike) => {
   try {
-    fs.createReadStream(`${path}/${fileName}`).pipe(unzipper.Extract({ path: path }));
+    fsLike.createReadStream(`${path}/${fileName}`).pipe(unzipper.Extract({ path: path }));
   } catch (error) {
     console.error(error);
   }

@@ -17,6 +17,6 @@ export const processLink = async (
   await fetchFile(link, localFileName, folderName, fs, https);
 
   if (fileType === 'zip') {
-    unzipFile(folderName, localFileName);
+    unzipFile(folderName, localFileName, fs);
   }
 };
