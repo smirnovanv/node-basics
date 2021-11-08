@@ -9,11 +9,11 @@ describe('test getting local file name', () => {
   const hashLength = 96;
 
   test('local file name starts with correct name', () => {
-    expect(result.slice(0, name.length + 1)).toBe('sample3-');
+    expect(result.startsWith('sample3-')).toBe(true);
   });
 
   test('local file name has right extention', () => {
-    expect(result.slice(name.length + hashLength + 1)).toBe('.txt');
+    expect(result.endsWith('.txt')).toBe(true);
   });
 
   test('file name length is correct', () => {
